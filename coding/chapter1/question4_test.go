@@ -20,6 +20,8 @@ func TestIsPalindromeOfPermutation(t *testing.T) {
 		{name: "3 odds", args: args{str: "tact coa ai"}, want: false},
 		{name: "ja", args: args{str: "よのなかねかお か おかねかなのよ"}, want: true},
 		{name: "mark", args: args{str: "!#$%!#$%"}, want: true},
+		{name: "one char", args: args{str: "a"}, want: true},
+		{name: "empty", args: args{str: ""}, want: true},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -46,6 +48,8 @@ func TestIsPalindromeOfPermutationWithBitVector(t *testing.T) {
 		{name: "contain 3 counts with one char", args: args{str: "tact ca a"}, want: true},
 		{name: "2 odds", args: args{str: "tact coa a"}, want: false},
 		{name: "3 odds", args: args{str: "tact coa ai"}, want: false},
+		{name: "one char", args: args{str: "a"}, want: true},
+		{name: "empty", args: args{str: ""}, want: true},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
