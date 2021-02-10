@@ -44,7 +44,6 @@ func TestURLifyWithStringsPackage(t *testing.T) {
 		{name: "success", args: args{str: "Hello", length: 5}, want: "Hello"},
 		{name: "success", args: args{str: "  ", length: 2}, want: "%20%20"},
 		{name: "success", args: args{str: "  ", length: 1}, want: "%20"},
-
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

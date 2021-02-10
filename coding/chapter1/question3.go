@@ -54,7 +54,7 @@ func URLifyArray(runes []rune, length int) string {
 		if runes[i] == ' ' {
 			str[index] = '%'
 			str[index+1] = '2'
-			str[index + 2] = '0'
+			str[index+2] = '0'
 			index += 3
 		} else {
 			str[index] = runes[i]

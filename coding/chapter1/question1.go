@@ -19,7 +19,7 @@ func IsUniqueChars(str string) bool {
 		return false
 	}
 	var charSet [128]bool
-	for _, c := range str{
+	for _, c := range str {
 		if charSet[c] {
 			return false
 		}
