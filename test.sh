@@ -1,12 +1,23 @@
 #!/bin/zsh
 
-number=$1
+N=$1
+CHAPTER_N=1
+
+FILE=./coding/chapter${CHAPTER_N}/question${N}.go
+TEST_FILE=./coding/chapter${CHAPTER_N}/question${N}_test.go
+
+COVER_PROFILE=c.out
+COVERAGES_HTML=coverage.html
+
+# coverage 視覚化してブラウザで開く
+ go test "${FILE}" "${TEST_FILE}" -covermode=count -coverprofile="${COVER_PROFILE}"
+ go tool cover -html="${COVER_PROFILE}" -o "${COVERAGES_HTML}"
+ open "${COVERAGES_HTML}"
+ sleep 1
+ rm "${COVERAGES_HTML}" "${COVER_PROFILE}"
 
 # ./test.sh 問題番号
-go test -v -cover ./coding/chapter1/question"${number}".go ./coding/chapter1/question"${number}"_test.go
-
-
-# command一覧
+# go test -v -cover "${FILE}" "${TEST_FILE}"
 
 # すべてのテスト実行
 # go test -v -cover ./...
@@ -16,3 +27,6 @@ go test -v -cover ./coding/chapter1/question"${number}".go ./coding/chapter1/que
 
 # 特定ファイルのみ実行
 # go test -v -cover ファイル名　テストファイル名
+
+# すべてのファイルを整形
+# go fmt ./...
