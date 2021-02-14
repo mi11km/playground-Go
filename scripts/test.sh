@@ -3,8 +3,8 @@
 N=$1
 CHAPTER_N=1
 
-FILE=./coding/chapter${CHAPTER_N}/question${N}.go
-TEST_FILE=./coding/chapter${CHAPTER_N}/question${N}_test.go
+FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}.go
+TEST_FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}_test.go
 
 COVER_PROFILE=c.out
 COVERAGES_HTML=coverage.html

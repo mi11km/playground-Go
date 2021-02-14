@@ -45,8 +45,8 @@ func CompressStrWithStringsBuilder(str string) string {
 			countConsecutive++
 		} else {
 			if charConsecutive != r {
-				compressed.WriteRune(charConsecutive)
-				compressed.WriteRune(rune(countConsecutive + 48))
+				compressed.WriteByte(byte(charConsecutive))
+				compressed.WriteByte(byte(countConsecutive + 48))
 				countConsecutive = 1
 				charConsecutive = r
 			} else {
@@ -54,10 +54,35 @@ func CompressStrWithStringsBuilder(str string) string {
 			}
 		}
 	}
-	compressed.WriteRune(charConsecutive)
-	compressed.WriteRune(rune(countConsecutive + 48))
+	compressed.WriteByte(byte(charConsecutive))
+	compressed.WriteByte(byte(countConsecutive + 48))
 
 	if compressed.Len() >= len(str)-1 {
+		return str
+	}
+	return compressed.String()
+}
+
+// 一番早い アルファベット限定
+func CompressStrWithStringsBuilder2(str string) string {
+	if len(str) < 2 {
+		return str
+	}
+	countConsecutive := 1
+	compressed := &strings.Builder{}
+	compressed.Grow(len(str))
+	for i := 1; i < len(str); i++ {
+		if str[i-1] == str[i] {
+			countConsecutive++
+		} else {
+			compressed.WriteByte(str[i-1])
+			compressed.WriteByte(byte(countConsecutive + 48))
+			countConsecutive = 1
+		}
+	}
+	compressed.WriteByte(str[len(str)-1])
+	compressed.WriteByte(byte(countConsecutive + 48))
+	if compressed.Len() >= len(str) {
 		return str
 	}
 	return compressed.String()
