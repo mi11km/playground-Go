@@ -1,20 +1,21 @@
 #!/bin/zsh
 
-N=$1
-CHAPTER_N=1
+#N=$1
+CHAPTER_N=2
 
-FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}.go
-TEST_FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}_test.go
+#FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}.go
+#TEST_FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}_test.go
+#FILE_PATH=../pkg/coding/chapter${CHAPTER_N}/*
 
 COVER_PROFILE=c.out
 COVERAGES_HTML=coverage.html
 
 # coverage 視覚化してブラウザで開く
- go test "${FILE}" "${TEST_FILE}" -covermode=count -coverprofile="${COVER_PROFILE}"
- go tool cover -html="${COVER_PROFILE}" -o "${COVERAGES_HTML}"
- open "${COVERAGES_HTML}"
- sleep 1
- rm "${COVERAGES_HTML}" "${COVER_PROFILE}"
+go test ../pkg/coding/chapter${CHAPTER_N}/* -covermode=count -coverprofile="${COVER_PROFILE}"
+go tool cover -html="${COVER_PROFILE}" -o "${COVERAGES_HTML}"
+open "${COVERAGES_HTML}"
+sleep 1
+rm "${COVERAGES_HTML}" "${COVER_PROFILE}"
 
 # ./test.sh 問題番号
 # go test -v -cover "${FILE}" "${TEST_FILE}"
