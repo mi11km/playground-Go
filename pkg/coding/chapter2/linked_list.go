@@ -72,13 +72,11 @@ func (ll *DoublyLinkedList) getNode(index int) *node {
 	return n
 }
 
-func (ll *DoublyLinkedList) Get(index int) (value int) {
-	if ll.length > index {
-		value = ll.getNode(index).value
-	} else {
-		value = -1
+func (ll *DoublyLinkedList) Get(index int) int {
+	if n := ll.getNode(index); n != nil {
+		return n.value
 	}
-	return
+	return -1
 }
 
 func (ll *DoublyLinkedList) Len() int {
