@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 N=$1
-CHAPTER_N=1
+CHAPTER_N=2
 
 FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}.go
 TEST_FILE=../pkg/coding/chapter${CHAPTER_N}/question${N}_test.go

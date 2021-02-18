@@ -1,5 +1,5 @@
 N=0
-CHAPTER_N=1
+CHAPTER_N=2
 
 file=../pkg/coding/chapter${CHAPTER_N}/question${N}*
 
