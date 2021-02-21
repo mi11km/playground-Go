@@ -1,5 +1,10 @@
 package chapter2
 
+import (
+	"strconv"
+	"strings"
+)
+
 type SinglyLinkedList struct {
 	head   *node
 	length int
@@ -44,7 +49,7 @@ func (l *SinglyLinkedList) Delete(index int) {
 }
 
 func (l *SinglyLinkedList) getNode(index int) *node {
-	if l.length <= index {
+	if l.length <= index || index < 0 {
 		return nil
 	}
 	n := l.head
@@ -76,4 +81,19 @@ func (l *SinglyLinkedList) Slice() []int {
 		n = n.next
 	}
 	return slice
+}
+
+func (l *SinglyLinkedList) String() string {
+	n := l.head
+	s := strings.Builder{}
+	s.WriteByte(byte('['))
+	for n != nil {
+		s.WriteString(strconv.Itoa(n.value))
+		if n.next != nil {
+			s.WriteByte(byte(' '))
+		}
+		n = n.next
+	}
+	s.WriteByte(byte(']'))
+	return s.String()
 }
