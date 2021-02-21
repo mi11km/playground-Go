@@ -130,25 +130,25 @@ func TestSinglyLinkedList_Slice(t *testing.T) {
 	}
 }
 
-//func TestDoublyLinkedList_String(t *testing.T) {
-//	tests := []struct {
-//		name  string
-//		args  []int
-//		wants string
-//	}{
-//		{name: "success", args: []int{1, 2, 3, 4, 5}, wants: "[1 2 3 4 5]"},
-//		{name: "empty", args: []int{}, wants: "[]"},
-//	}
-//	for _, tt := range tests {
-//		t.Run(tt.name, func(t *testing.T) {
-//			l := NewSinglyLinkedList()
-//			for _, val := range tt.args {
-//				l.Insert(val)
-//			}
-//
-//			if got := l.String(); got != tt.wants {
-//				t.Errorf("want: %v, got: %v\n", tt.wants, got)
-//			}
-//		})
-//	}
-//}
+func TestSinglyLinkedList_String(t *testing.T) {
+	tests := []struct {
+		name  string
+		args  []int
+		wants string
+	}{
+		{name: "success", args: []int{1, 2, 3, 4, 5}, wants: "[1 2 3 4 5]"},
+		{name: "empty", args: []int{}, wants: "[]"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			l := NewSinglyLinkedList()
+			for _, val := range tt.args {
+				l.Insert(val)
+			}
+
+			if got := l.String(); got != tt.wants {
+				t.Errorf("want: %v, got: %v\n", tt.wants, got)
+			}
+		})
+	}
+}
