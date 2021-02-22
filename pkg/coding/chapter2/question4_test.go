@@ -42,7 +42,7 @@ func TestSinglyLinkedList_Partition2(t *testing.T) {
 		want []int
 	}{
 		{"success", args{x: 5, values: []int{3, 5, 8, 5, 10, 2, 1}}, []int{3, 2, 1, 5, 8, 5, 10}},
-		{"nothing less than x", args{x: 0, values: []int{3, 5, 8, 5, 10, 2, 1}}, []int{3, 2, 1, 5, 8, 5, 10}},
+		{"nothing less than x", args{x: 0, values: []int{3, 5, 8, 5, 10, 2, 1}}, []int{3, 5, 8, 5, 10, 2, 1}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -95,7 +95,7 @@ func TestSinglyLinkedList_Swap(t *testing.T) {
 		want []int
 	}{
 		{"success", args{values: []int{3, 5, 8, 5, 10, 2, 1}, i1: 1, i2: 4}, []int{3, 10, 8, 5, 5, 2, 1}},
-		{"index out of range", args{values: []int{3, 5, 8, 5, 10, 2, 1}, i1: 7, i2: 4}, []int{3, 10, 8, 5, 5, 2, 1}},
+		{"index out of range", args{values: []int{3, 5, 8, 5, 10, 2, 1}, i1: 7, i2: 4}, []int{3, 5, 8, 5, 10, 2, 1}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
