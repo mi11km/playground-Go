@@ -27,3 +27,6 @@ func IsPalindrome(list *SinglyLinkedList) bool {
 	}
 	return true
 }
+
+
+// todo 本に乗ってた別の解法を実装してみる！　並び替えと比較　再帰
