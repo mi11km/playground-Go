@@ -76,7 +76,7 @@ func addListsByRecursion(l1, l2 *node, carry int) *node {
 }
 
 /*
-リストで表された2数の和(上位の桁から順番に並んでる)
+todo リストで表された2数の和(上位の桁から順番に並んでる)
 */
 //func AddLinkedLists(l1, l2 *SinglyLinkedList) *SinglyLinkedList {
 //
