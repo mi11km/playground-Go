@@ -97,3 +97,14 @@ func (l *SinglyLinkedList) String() string {
 	s.WriteByte(byte(']'))
 	return s.String()
 }
+
+func GetLinkedListFromValues(vals []int) *SinglyLinkedList {
+	l := NewSinglyLinkedList()
+	if len(vals) == 0 {
+		return l
+	}
+	for _, val := range vals {
+		l.Insert(val)
+	}
+	return l
+}
