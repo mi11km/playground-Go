@@ -11,7 +11,7 @@ COVER_PROFILE=c.out
 COVERAGES_HTML=coverage.html
 
 # coverage 視覚化してブラウザで開く
-go test ../pkg/coding/chapter${CHAPTER_N}/* -covermode=count -coverprofile="${COVER_PROFILE}"
+go test ../coding/chapter${CHAPTER_N}/* -covermode=count -coverprofile="${COVER_PROFILE}"
 go tool cover -html="${COVER_PROFILE}" -o "${COVERAGES_HTML}"
 open "${COVERAGES_HTML}"
 sleep 1
