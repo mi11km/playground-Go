@@ -48,12 +48,6 @@ func TestRotateMatrix90Degree(t *testing.T) {
 			if !reflect.DeepEqual(tt.args.matrix, tt.want) {
 				t.Errorf("Rotate90Degree() 1 times = %v, want %v", tt.args.matrix, tt.want)
 			}
-			Rotate90Degree(tt.args.matrix)
-			Rotate90Degree(tt.args.matrix)
-			Rotate90Degree(tt.args.matrix)
-			if !reflect.DeepEqual(tt.args.matrix, tt.want) {
-				t.Errorf("Rotate90Degree() 4 times = %v, want %v", tt.args.matrix, tt.want)
-			}
 		})
 	}
 }
