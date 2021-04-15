@@ -12,7 +12,7 @@ func Average(arr []float64) float64 {
 	return Sum(arr) / float64(len(arr))
 }
 
-// 最小2乗法: 1次関数 y = ax + b で近似する場合の a と b を標準出力
+// LeastSquaresMethod 最小2乗法: 1次関数 y = ax + b で近似する場合の a と b を標準出力
 func LeastSquaresMethod(x, y []float64) (float64, float64) {
 	xy := make([]float64, len(x))
 	x_2 := make([]float64, len(x))
@@ -29,7 +29,7 @@ func LeastSquaresMethod(x, y []float64) (float64, float64) {
 	return a, b
 }
 
-// ラグランジュ補間多項式で x = a のときの y を求める
+// LagrangeInterpolation ラグランジュ補間多項式で x = a のときの y を求める
 func LagrangeInterpolation(x, y []float64, a float64) float64 {
 	result := 0.0
 	tmp1, tmp2 := 1.0, 1.0

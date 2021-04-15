@@ -19,7 +19,6 @@ func TestSinglyLinkedList_GetFromRear(t *testing.T) {
 		{name: "success", args: args{index: 4, list: []int{1, 2, 3, 4}}, want: 1},
 		{name: "index out of range", args: args{index: 5, list: []int{1, 2, 3, 4}}, want: -1},
 		{name: "index out of range", args: args{index: -1, list: []int{1, 2, 3, 4}}, want: -1},
-
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -51,7 +50,6 @@ func TestSinglyLinkedList_KthToLast(t *testing.T) {
 		{name: "success", args: args{index: 4, list: []int{1, 2, 3, 4}}, want: 1},
 		{name: "index out of range", args: args{index: 5, list: []int{1, 2, 3, 4}}, want: -1},
 		{name: "index out of range", args: args{index: -1, list: []int{1, 2, 3, 4}}, want: -1},
-
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
