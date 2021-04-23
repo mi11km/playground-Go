@@ -1,6 +1,6 @@
 package chapter2
 
-/* 循環する連結リストの循環点を返す関数 */
+// FindLoopNode 循環する連結リストの循環点を返す関数
 func (l *SinglyLinkedList) FindLoopNode() *node {
 	slow := l.head
 	fast := l.head

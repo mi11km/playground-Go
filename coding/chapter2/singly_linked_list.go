@@ -73,6 +73,7 @@ func (l *SinglyLinkedList) Len() int {
 /*--------------*/
 
 // Mostly used for testing and debug
+
 func (l *SinglyLinkedList) Slice() []int {
 	slice := make([]int, l.length)
 	n := l.head

@@ -1,9 +1,7 @@
 package chapter2
 
-/*
-連結リストの要素を並び替えて、xより小さいものが前に来るようにするメソッド
-計算量 O(n^2) で遅い
-*/
+// SplitList 連結リストの要素を並び替えて、xより小さいものが前に来るようにするメソッド
+//           計算量 O(n^2) で遅い
 func (l *SinglyLinkedList) SplitList(x int) {
 	node1 := l.head
 	for i := 0; i < l.length; i++ {
@@ -36,10 +34,8 @@ func (l *SinglyLinkedList) Swap(i1, i2 int) bool {
 	return true
 }
 
-/*
-存在するノードを用いて、前方に新しいリストを作りながら作成する。最後に旧リストを削除
-xよりより小さいものは先頭に挿入し、それ以外は末尾（新リストと旧リストの間）に挿入する。
-*/
+// Partition 存在するノードを用いて、前方に新しいリストを作りながら作成する。最後に旧リストを削除
+//			 xよりより小さいものは先頭に挿入し、それ以外は末尾（新リストと旧リストの間）に挿入する。
 func (l *SinglyLinkedList) Partition(x int) {
 	n := l.head
 	head := l.head

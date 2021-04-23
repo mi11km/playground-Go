@@ -1,6 +1,6 @@
 package chapter2
 
-// ソートされていない連結リストから、重複する要素を削除する
+// DeleteDuplicateVal ソートされていない連結リストから、重複する要素を削除する
 func (ll *DoublyLinkedList) DeleteDuplicateVal() {
 	l := ll.length
 	for i := 0; i < l; i++ {
