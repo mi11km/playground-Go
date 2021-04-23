@@ -1,6 +1,6 @@
 package chapter1
 
-/* ２つの文字列が与えられたとき、片方がもう片方の並び替えになっているかどうかを決定する関数 */
+// IsPermutation ２つの文字列が与えられたとき、片方がもう片方の並び替えになっているかどうかを決定する関数
 func IsPermutation(str1, str2 string) bool {
 	if len(str1) != len(str2) {
 		return false

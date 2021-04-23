@@ -1,6 +1,6 @@
 package chapter1
 
-/* 文字の挿入or削除or置き換えのどれか(もしくは操作なし)で一方の文字列をもう一方に変換できるかどうか */
+// IsTransformedByOneStep 文字の挿入or削除or置き換えのどれか(もしくは操作なし)で一方の文字列をもう一方に変換できるかどうか
 func IsTransformedByOneStep(str1, str2 string) bool {
 	if str1 == str2 {
 		return true
