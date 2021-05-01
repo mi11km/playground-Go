@@ -7,14 +7,14 @@
 ### 実行
 - `main.go`の実行
 ```shell
-docker-compose run --rm app go run cmd/main.go
+make run
 ```
 - すべてのテストの実行
 ```shell
-docker-compose run --rm app go test -v -cover ./...
+make test_all
 ```
-上記の`./...`をパッケージの相対パスにすることでそのパッケージのみのテストにできる。
+fileにパッケージの相対パスを指定することでそのパッケージのみのテストにできる。
 ```shell
 # example
-docker-compose run --rm app go test -v -cover ./coding/chapter1
+make test file=./coding/chapter1
 ```
