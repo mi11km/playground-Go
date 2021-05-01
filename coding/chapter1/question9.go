@@ -2,7 +2,7 @@ package chapter1
 
 import "strings"
 
-/* s2がs1を回転させたものかどうか判定する関数 */
+// IsRotateString s2がs1を回転させたものかどうか判定する関数
 func IsRotateString(s1, s2 string) bool {
 	if len(s1) == len(s2) && len(s1) > 0 {
 		s1s1 := strings.Builder{}

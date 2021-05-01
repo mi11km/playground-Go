@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-/* 与えられた文字列の順列が回文かどうか判定する 空白文字は考慮せず、大文字小文字も区別しない */
+// IsPalindromeOfPermutation 与えられた文字列の順列が回文かどうか判定する 空白文字は考慮せず、大文字小文字も区別しない
 func IsPalindromeOfPermutation(str string) bool {
 	str = strings.Replace(str, " ", "", -1)
 	str = strings.ToLower(str)
@@ -35,6 +35,7 @@ func IsPalindromeOfPermutation(str string) bool {
 ex) 00010000 - 1 = 00001111, 00010000 & 00001111 = 0
     01010100 - 1 = 01010011, 01010100 & 01010011 = 01010000
 */
+
 func IsPalindromeOfPermutationWithBitVector(str string) bool {
 	str = strings.Replace(str, " ", "", -1)
 	str = strings.ToLower(str)

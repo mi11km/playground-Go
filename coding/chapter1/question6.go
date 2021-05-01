@@ -63,7 +63,7 @@ func CompressStrWithStringsBuilder(str string) string {
 	return compressed.String()
 }
 
-// 一番早い アルファベット限定
+// CompressStrWithStringsBuilder2 一番早い アルファベット限定
 func CompressStrWithStringsBuilder2(str string) string {
 	if len(str) < 2 {
 		return str

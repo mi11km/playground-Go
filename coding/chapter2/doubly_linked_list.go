@@ -86,6 +86,7 @@ func (ll *DoublyLinkedList) Len() int {
 /*--------------*/
 
 // Mostly used for testing and debug
+
 func (ll *DoublyLinkedList) Slice() []int {
 	slice := make([]int, ll.length)
 	n := ll.head

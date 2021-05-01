@@ -20,7 +20,7 @@ func Rotate90Degree(matrix [][]rune) bool {
 	return true
 }
 
-// 4回やるとなぜかもとに戻らない
+// Rotate 4回やるとなぜかもとに戻らない
 func Rotate(matrix [][]rune) bool {
 	if len(matrix) == 0 || len(matrix) != len(matrix[0]) {
 		return false

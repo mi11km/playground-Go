@@ -1,6 +1,6 @@
 package chapter1
 
-/* 与えられた文字列に重複する文字があるかないか判定する関数 */
+// IsDuplicated 与えられた文字列に重複する文字があるかないか判定する関数
 func IsDuplicated(str string) bool {
 	m := make(map[rune]struct{})
 	for _, r := range str {
@@ -13,7 +13,7 @@ func IsDuplicated(str string) bool {
 	return true
 }
 
-/* 引数の文字列を ASCII(128文字) に限定した場合 */
+// IsUniqueChars 引数の文字列を ASCII(128文字) に限定した場合
 func IsUniqueChars(str string) bool {
 	if len(str) > 128 {
 		return false

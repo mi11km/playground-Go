@@ -114,7 +114,7 @@ func TestDoublyLinkedList_Slice(t *testing.T) {
 		{
 			name:  "empty",
 			args:  args{vals: []int{}},
-			wants: wants{head: []int{}, tail: []int{ }},
+			wants: wants{head: []int{}, tail: []int{}},
 		},
 	}
 	for _, tt := range tests {

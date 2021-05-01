@@ -1,6 +1,6 @@
 package chapter1
 
-/* M*N行列について０の要素がある行と列をすべてゼロにする関数 */
+// ToZero M*N行列について０の要素がある行と列をすべてゼロにする関数
 func ToZero(matrix [][]int) bool {
 	m := len(matrix)
 	if m == 0 {
@@ -26,7 +26,7 @@ func ToZero(matrix [][]int) bool {
 	return true
 }
 
-/* １行目と１列目にその行や列が 0 を保持してるかどうか記憶することで空間計算量を O(1) にできる */
+// SetZeros １行目と１列目にその行や列が 0 を保持してるかどうか記憶することで空間計算量を O(1) にできる
 func SetZeros(matrix [][]int) {
 	if len(matrix) == 0 {
 		return

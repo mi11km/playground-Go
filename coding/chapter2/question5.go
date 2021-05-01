@@ -1,8 +1,6 @@
 package chapter2
 
-/*
-リストで表された2数の和(下位の桁から順番に並んでる)
-*/
+// AddListsByLoop リストで表された2数の和(下位の桁から順番に並んでる)
 func AddListsByLoop(l1, l2 *SinglyLinkedList) *SinglyLinkedList {
 	add := NewSinglyLinkedList()
 	n1, n2 := l1.head, l2.head

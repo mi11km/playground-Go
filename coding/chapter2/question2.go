@@ -11,7 +11,7 @@ func (l *SinglyLinkedList) GetFromRear(index int) int {
 	return n.value
 }
 
-// 長さがわかってない場合
+// KthToLast 長さがわかってない場合
 func (l *SinglyLinkedList) KthToLast(index int) int {
 	if index < 0 {
 		return -1
