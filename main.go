@@ -1,7 +1,7 @@
 package main
 
 import (
-	"app/chat"
+	"app/web-app/chat"
 	"flag"
 	"log"
 	"net/http"
@@ -18,7 +18,7 @@ type templateHandler struct {
 
 func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	t.once.Do(func() {
-		t.templ = template.Must(template.ParseFiles(filepath.Join("chat/templates", t.filename)))
+		t.templ = template.Must(template.ParseFiles(filepath.Join("web-app/chat/templates", t.filename)))
 	})
 	t.templ.Execute(w, r)
 }
