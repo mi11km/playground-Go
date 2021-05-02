@@ -1,9 +1,9 @@
 N=0
 CHAPTER_N=2
 
-file=../coding/chapter${CHAPTER_N}/*
+file=./coding/chapter${CHAPTER_N}/*
 
-path=cmd/main.go
+path=main.go
 
 # make t N=問題番号
 test:
