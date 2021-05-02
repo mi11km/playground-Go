@@ -2,9 +2,11 @@ package main
 
 import (
 	"app/web-app/chat"
+	"app/web-app/chat/trace"
 	"flag"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"sync"
 	"text/template"
@@ -28,8 +30,11 @@ func main() {
 	flag.Parse()
 
 	r := chat.NewRoom()
+	r.Tracer = trace.New(os.Stdout)
+
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
+
 	go r.Run()
 
 	log.Println("webサーバーを開始。ポート：", *addr)

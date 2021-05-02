@@ -20,8 +20,8 @@ func TestGenerateFeed(t *testing.T) {
 			name: "config指定なし、つまり全て補完用から取ってくる",
 			args: args{
 				configs: []*CategorizedFeedConfig{},
-				offset: 0,
-				limit: 4,
+				offset:  0,
+				limit:   4,
 			},
 			want: []int{100, 200, 300, 400},
 		},
