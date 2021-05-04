@@ -1,8 +1,10 @@
 package middleware
 
 import (
+	"encoding/base64"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -69,12 +71,18 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 			url := oauthConfigs[provider].AuthCodeURL(oauthStateString)
 			http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 		case "callback":
-			contents, err := getUserInfo(provider, r.FormValue("state"), r.FormValue("code"))
+			userInfoBytes, err := getUserInfo(provider, r.FormValue("state"), r.FormValue("code"))
 			if err != nil {
+				log.Println(err.Error())
 				http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
 			} else {
-				// todo 
-				fmt.Fprintf(w, "Content: %s\n", contents)
+				encodedUserInfo := base64.StdEncoding.EncodeToString(userInfoBytes)
+				http.SetCookie(w, &http.Cookie{
+					Name:  "auth",
+					Value: encodedUserInfo,
+					Path:  "/",
+				})
+				http.Redirect(w, r, "/chat", http.StatusTemporaryRedirect)
 			}
 		default:
 			w.WriteHeader(http.StatusNotFound)
