@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -116,4 +117,32 @@ func getUserInfo(provider, state, code string) ([]byte, error) {
 		return nil, fmt.Errorf("reading response body failed: %s", err.Error())
 	}
 	return contents, nil
+}
+
+func DecodeUserInfo(r *http.Request) map[string]interface{} {
+	if authCookie, err := r.Cookie("auth"); err == nil {
+		if userInfoBytes, err := base64.StdEncoding.DecodeString(authCookie.Value); err == nil {
+			// userDataの形式
+			//{
+			//	"id": "1222222223445",
+			//	"email": "example@gmail.com",
+			//	"verified_email": true,
+			//	"name": "example",
+			//	"given_name": "example",
+			//	"picture": "https://asdfj;alskjdf;kajsd;flkad",
+			//	"locale": "ja"
+			//}
+			userData := make(map[string]interface{})
+			if err := json.Unmarshal(userInfoBytes, &userData); err != nil {
+				log.Printf("failed to unmarshal: %s\n", err.Error())
+				return nil
+			}
+			return userData
+		}
+		log.Printf("failed to decode userInfo from cookie: %s\n", err.Error())
+		return nil
+
+	}
+	log.Printf("failed to get userInfo from cookie\n")
+	return nil
 }
