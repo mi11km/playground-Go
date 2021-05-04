@@ -1,6 +1,7 @@
 package chat
 
 import (
+	"app/web-app/chat/middleware"
 	"app/web-app/chat/trace"
 	"log"
 	"net/http"
@@ -9,7 +10,7 @@ import (
 )
 
 type room struct {
-	forward chan []byte
+	forward chan *message
 	join    chan *client
 	leave   chan *client
 	clients map[*client]bool
@@ -18,7 +19,7 @@ type room struct {
 
 func NewRoom() *room {
 	return &room{
-		forward: make(chan []byte),
+		forward: make(chan *message),
 		join:    make(chan *client),
 		leave:   make(chan *client),
 		clients: make(map[*client]bool),
@@ -37,7 +38,7 @@ func (r *room) Run() {
 			close(client.send)
 			r.Tracer.Trace("クライアントが退出しました")
 		case msg := <-r.forward:
-			r.Tracer.Trace("メッセージを受信しました：", string(msg))
+			r.Tracer.Trace("メッセージを受信しました：", msg.Message)
 			for client := range r.clients {
 				select {
 				case client.send <- msg:
@@ -69,9 +70,14 @@ func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 	client := &client{
 		socket: socket,
-		send:   make(chan []byte, messageBufferSize),
+		send:   make(chan *message, messageBufferSize),
 		room:   r,
 	}
+	userData := middleware.DecodeUserInfo(req)
+	if userData != nil {
+		client.userData = userData
+	}
+
 	r.join <- client
 	defer func() { r.leave <- client }()
 	go client.write()
